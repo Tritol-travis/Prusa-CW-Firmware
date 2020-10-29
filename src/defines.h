@@ -63,7 +63,7 @@
 #define HEATER_TEST_TIME	10		// minutes
 #define HEATER_TEST_GAIN	5.0		// celsius
 #define HEATER_CHECK_DELAY	2000	// microseconds
-#define SN_LENGTH			15
+#define SN_LENGTH			16
 #define MAX_MENU_DEPTH		5
 #define MENU_REDRAW_US		1000
 #define ADC_OVRSAMPL		4
