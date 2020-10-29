@@ -72,13 +72,23 @@ namespace UI {
 	};
 
 
-	// UI::Menu_self_redraw
-	class Menu_self_redraw : public Menu {
+	// UI::Info
+	class Info : public Base {
 	public:
-		Menu_self_redraw(const char* label, Base* const* items, uint8_t items_count, uint16_t redraw_us);
+		Info(const char* label, Base* const* items, uint8_t items_count, uint16_t redraw_us = 0);
 		void show();
 		void loop();
+		void invoke();
+		Base* process_events(uint8_t events);
+		void set_long_press_ui_item(Base *ui_item);
 	private:
+		void event_control_up();
+		void event_control_down();
+		Base* const* const items;
+		Base* long_press_ui_item;
+		uint8_t const items_count;
+		uint8_t info_offset;
+		uint8_t max_items;
 		uint16_t redraw_us;
 		unsigned long us_last;
 	};
