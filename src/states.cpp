@@ -59,6 +59,7 @@ namespace States {
 		cooldown_fans_speed,
 		&confirm,
 		&cooldown_time);
+	Reset reset;
 
 	Test_heater selftest_heater(
 		pgmstr_heater_test,

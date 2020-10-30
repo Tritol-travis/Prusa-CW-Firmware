@@ -114,6 +114,14 @@ namespace States {
 	};
 
 
+	// States::Reset
+	class Reset : public Base {
+	public:
+		Reset();
+		void start();
+	};
+
+
 	// States::Test_switch
 	class Test_switch : public Base {
 	public:

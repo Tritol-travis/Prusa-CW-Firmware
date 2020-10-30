@@ -112,10 +112,15 @@ namespace UI {
 	Base* const hw_items[] PROGMEM = {&back, &fan1_rpm, &fan2_rpm, &fan3_rpm, &chamber_temp, &uvled_temp};
 	Info hw_info(pgmstr_emptystr, hw_items, COUNT_ITEMS(hw_items), MENU_REDRAW_US);
 
+	// factory reset confirm
+	State factory_reset(pgmstr_reset_confirm, &States::reset);
+	Base* const reset_items[] PROGMEM = {&back, &factory_reset};
+	Menu reset(pgmstr_factory_reset, reset_items, COUNT_ITEMS(reset_items));
+
 	// advanced menu
 	State cooldown(pgmstr_cooldown, &States::cooldown, &hw_info);
-	State selftest(pgmstr_selftest, &States::selftest_cover, nullptr);
-	Base* const advanced_items[] PROGMEM = {&back, &fans_menu, &led_intensity, &cooldown, &selftest};
+	State selftest(pgmstr_selftest, &States::selftest_cover);
+	Base* const advanced_items[] PROGMEM = {&back, &fans_menu, &led_intensity, &reset, &cooldown, &selftest};
 	Menu advanced_menu(pgmstr_emptystr, advanced_items, COUNT_ITEMS(advanced_items));
 
 

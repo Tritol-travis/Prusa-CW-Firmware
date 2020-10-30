@@ -1,9 +1,13 @@
 #include "states.h"
+#include "EEPROM.h"
 
 namespace States {
 
 	// shared counter for all states (RAM saver)
 	Countimer timer;
+
+	//  reset is at address 0
+	void(*suicide)(void) = 0;
 
 	// States::Base
 	Base::Base(
@@ -341,6 +345,17 @@ namespace States {
 		} else {
 			return nullptr;
 		}
+	}
+
+
+	// States::Reset
+	Reset::Reset() :
+		Base(pgmstr_emptystr, 0)
+	{}
+
+	void Reset::start() {
+		EEPROM.write(CONFIG_START, 0xff);
+		suicide();
 	}
 
 
