@@ -17,6 +17,7 @@ namespace States {
 	extern Warmup warmup_print;
 	extern Warmup warmup_resin;
 	extern Base cooldown;
+	extern Reset reset;
 	extern Test_switch selftest_cover;
 
 	void init();
