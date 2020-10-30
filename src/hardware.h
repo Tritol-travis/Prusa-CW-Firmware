@@ -22,7 +22,7 @@ public:
 
 	static void encoder_read();
 
-	static void run_motor();
+	static void run_motor(bool direction);
 	static void stop_motor();
 	static void speed_configuration(uint8_t speed, bool fast_mode, bool gear_shifting = false);
 	static void acceleration();

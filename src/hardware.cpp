@@ -68,6 +68,8 @@ Hardware::Hardware() {
 	pinMode(BEEPER, OUTPUT);
 
 	// motor
+	pinMode(EN_PIN, OUTPUT);
+	pinMode(DIR_PIN, OUTPUT);
 	pinMode(STEP_PIN, OUTPUT);
 
 	// led
@@ -164,10 +166,11 @@ void Hardware::encoder_read() {
 	}
 }
 
-void Hardware::run_motor() {
+void Hardware::run_motor(bool direction) {
 	// enable stepper timer
 	TIMSK3 |= (1 << OCIE3A);
 	// enable stepper
+	outputchip.digitalWrite(DIR_PIN, direction);
 	outputchip.digitalWrite(EN_PIN, LOW);
 }
 
