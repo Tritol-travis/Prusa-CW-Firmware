@@ -35,9 +35,9 @@
 #define FAN3_ERROR_MASK		B100
 
 // various constants
-#define LED_DELAY			2000
-#define LONG_PRESS_TIME		1000
-#define	P					10	// 0.5
+#define LED_DELAY			2000	// microseconds
+#define LONG_PRESS_TIME		1000	// microseconds
+#define P					10		// 0.5
 #define I					0.001
 #define MIN_TARGET_TEMP_C	20
 #define MAX_TARGET_TEMP_C	40
@@ -73,6 +73,7 @@
 #define MAX_FAST_SPEED		16
 #define MIN_SLOW_SPEED		220
 #define MAX_SLOW_SPEED		25
+#define DIR_CHANGE_DELAY	2		// seconds
 
 #define MCP_A0	1	// pin 21
 #define MCP_A1	2	// pin 22

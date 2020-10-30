@@ -56,14 +56,37 @@ namespace States {
 		const char* message;
 		uint8_t* const target_temp;
 		uint8_t* const fans_duties;
+		uint8_t* const motor_speed;
+		uint8_t* const continue_after;
+		uint8_t const options;
 		unsigned long us_last;
 		bool canceled;
+		bool motor_direction;
 	private:
 		const char* get_hw_pause_reason();
 		const char* title;
-		uint8_t* const continue_after;
-		uint8_t* const motor_speed;
-		uint8_t const options;
+	};
+
+
+	// States::Direction_change
+	class Direction_change : public Base {
+	public:
+		Direction_change(
+			const char* title,
+			uint8_t options,
+			uint8_t* direction_cycles,
+			uint8_t* fans_duties = config.fans_menu_speed,
+			Base* continue_to = nullptr,
+			uint8_t* continue_after = nullptr,
+			uint8_t* motor_speed = nullptr,
+			uint8_t* target_temp = nullptr);
+		void start();
+		Base* loop();
+	private:
+		uint8_t* const direction_cycles;
+		uint16_t direction_change_time;
+		uint16_t old_seconds;
+		uint16_t stop_seconds;
 	};
 
 

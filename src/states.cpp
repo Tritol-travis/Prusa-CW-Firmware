@@ -7,9 +7,10 @@ namespace States {
 	Base menu;
 	Confirm confirm;
 	Confirm error;
-	Base washing(
+	Direction_change washing(
 		pgmstr_washing,
 		STATE_OPTION_CONTROLS | STATE_OPTION_WASHING,
+		&config.wash_cycles,
 		config.fans_washing_speed,
 		&confirm,
 		&config.washing_run_time,
